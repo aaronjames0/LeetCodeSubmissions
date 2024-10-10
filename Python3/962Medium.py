@@ -6,11 +6,11 @@ class Solution:
         for n in nums[::-1]:
             max_r[i] = max(n,prev_max)
             prev_max = max_r[i]
-            i=i-1
+            i-=1
         l = 0
         Max = 0
         for r in range(len(nums)):
             while nums[l]>max_r[r]:
-                l=l+1
+                l+=1
             Max = max(Max,r-l)
         return Max
