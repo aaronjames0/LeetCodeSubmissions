@@ -4,11 +4,11 @@ class Solution:
         open_seat = 0
         deapartures = []
         max_time = times[targetFriend][0]
-        arrivals = [(arrive, leave, i) for i, (arrive, leave) in enumerate(times) if arrive < max_time]
+        arrivals = [(arrive, leave) for i, (arrive, leave) in enumerate(times) if arrive < max_time]
         heapify(arrivals)
 
         while arrivals:
-            arrive, leave, i = heappop(arrivals)
+            arrive, leave = heappop(arrivals)
             while deapartures and deapartures[0][0] <= arrive:
                 time, seat = heappop(deapartures)
                 if seat == open_seat - 1:
