@@ -9,8 +9,8 @@ class Solution:
             while index < length and first == nums[index].bit_count(): # While the index is valid and the current num's bit count matches
                 heapq.heappush(heap, nums[index]) # Push the num to the heap
                 index += 1 # Increment the index
-            while heap: # While nums exist in the heap
-                num = heapq.heappop(heap) # Get the next num
-                if prev and prev > num: return False # Return False if prev has been set and it is greater than the next num
-                prev = num # Update the prev value
+            num = heapq.heappop(heap) # Get the minimum value of the heap
+            if prev and prev > num: return False # Return False if prev has been set and it is greater than the next num
+            while heap: num = heapq.heappop(heap) # Empty the heap, keeping track of the last value
+            prev = num # Update the previous value with num
         return True # If the code has reached this line, sorting the list is possible
